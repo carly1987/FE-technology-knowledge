@@ -1,0 +1,14 @@
+#ignore these path:
+dist/
+node_modules/
+
+＃ ignore mix js or css
+**/*.min.js
+**/*-min.js
+
+# ignore these
+webpack.config.js
+webpack.test.js
+karma.conf.js
+package.json
+.gitignore

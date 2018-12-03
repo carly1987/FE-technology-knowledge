@@ -1,0 +1,27 @@
+
+module.exports = function(config) {
+  config.set({
+    frameworks: ['mocha', 'chai', 'requirejs'],
+    files: ['test/**/*.js'],
+    reporters: ['progress'],
+    port: 9876,
+    logLevel: config.LOG_INFO,
+    browsers: ['Chrome', 'ChromeHeadless'],
+    autoWatch: true,
+    concurrency: Infinity,
+    preprocessors: {
+      'test/**/*.js': ['webpack']
+    },
+    webpack: {
+      module: {
+        loaders: [{
+          test: /\.js/i,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader"
+          }
+        }]
+      }
+    }
+  });
+}

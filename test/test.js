@@ -1,11 +1,20 @@
-import {isNum} from '../src/index';
+import {isNum, formatTime} from '../src/index';
 import chai from 'chai';
 const {expect, to, equal, be} = chai;
 
 describe('index.js', function(){
-  it('isNum() should work fine 88', function(){
-    expect(isNum(1)).to.be.true
-    ;
+  it('isNum() should work fine', function(){
+    expect(isNum(1)).to.be.true;
     expect(isNum('1')).to.equal(false);
-  })
-})
+  });
+
+  it('formatTime() should work fine', function() {
+    expect(formatTime("2018-12-4 00:00:00")).to.equal("00:00");
+    expect(formatTime("2018-12-4 01:00:00")).to.equal("01:00");
+    expect(formatTime("2018-12-4 08:00:00")).to.equal("08:00");
+    expect(formatTime("2018-12-4 12:00:00")).to.equal("12:00");
+    expect(formatTime("2018-12-4 18:00:00")).to.equal("18:00");
+    expect(formatTime("2018-12-4 23:00:00")).to.equal("23:00");
+    expect(formatTime("2018-12-5 00:00:00")).to.equal("00:00");
+  });
+});
